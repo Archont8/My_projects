@@ -1,0 +1,119 @@
+using System.Security.Cryptography;
+
+namespace GeneratorOfSafronov
+{
+    class Gen
+    {
+        public int ValueInt(int minValue, int maxValue)
+        {
+            var Task1 = Task.Factory.StartNew(() =>
+            {
+                if (minValue > maxValue) (minValue, maxValue) = (maxValue, minValue);
+                int Flag = 1;
+                var gen = RandomNumberGenerator.Create();
+                byte[] bytesArray = new byte[100];
+                gen.GetBytes(bytesArray, 0, 100);
+                string Symbols = Convert.ToBase64String(bytesArray);
+                // массив символов, полученный при конвертации byte в string
+
+                List<char> DigitsChar = Enumerable
+                .Range(0, 100)
+                .AsParallel()
+                .Select(i => Convert.ToChar(Symbols[i]))
+                .ToList();
+                // массив символов, полученных при конвертации string в char
+
+                var Task2 = Task.Factory.StartNew(() =>
+                {
+                    List<dynamic> Digits = Enumerable
+                    .Range(0, 100)
+                    .AsParallel()
+                    .Select(i => SymbolsInDigits(DigitsChar, Flag, minValue, maxValue))
+                    .ToList();
+                    // массив чисел, полученных при конвертации char в int с помощью
+                    // метода SymbolsInDigits
+
+                    int Value = Digits[new Random().Next(0, 100)];
+                    return Value;
+                }, TaskCreationOptions.AttachedToParent);
+                return Task2.Result;
+            });
+            Task1.Wait();
+            return Task1.Result;
+        }
+        public double ValueDouble()
+        {
+            int minValue = 0; int maxValue = 1;
+            var Task1 = Task.Factory.StartNew(() =>
+            {
+                int Flag = 2;
+                var gen = RandomNumberGenerator.Create();
+                byte[] bytesArray = new byte[100];
+                gen.GetBytes(bytesArray);
+                string Symbols = Convert.ToBase64String(bytesArray);
+                // массив символов, полученный при конвертации byte в string
+
+                List<char> DigitsChar = Enumerable
+                .Range(0, 100)
+                .AsParallel()
+                .Select(i => Convert.ToChar(Symbols[i]))
+                .ToList();
+                // массив символов, полученных при конвертации string в char
+
+                var Task2 = Task.Factory.StartNew(() =>
+                {
+                    List<dynamic> Digits = Enumerable
+                    .Range(0, 100)
+                    .AsParallel()
+                    .Select(i => SymbolsInDigits(DigitsChar, Flag, minValue, maxValue))
+                    .ToList();
+                    // массив чисел, полученных при конвертации char в int с помощью
+                    // метода SymbolsInDigits
+
+                    double Value = Digits[new Random().Next(0, 100)];
+                    return Value;
+                }, TaskCreationOptions.AttachedToParent);
+                return Task2.Result;
+            });
+            Task1.Wait();
+            return Task1.Result;
+        }
+        private static dynamic SymbolsInDigits(List<char> mas, 
+        int Flag, int minValue, int maxValue)
+        {
+            var rnd = new Random();
+
+            List<char> Symbols = new() {
+                'a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F',
+                'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L',
+                'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R',
+                's', 'S', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X',
+                'y', 'Y', 'z', 'Z',
+                '=', '-', '+', '#', '@', '%', '&', '/',
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+            };
+            if (Flag == 1)
+            {
+                for (int i = 0; i < Symbols.Count; ++i)
+                {
+                    for (int j = 0; j < mas.Count; ++i)
+                    {
+                        if (mas[j] == Symbols[i]) return rnd.Next(minValue, maxValue);
+                    }
+                }
+            }
+            else if (Flag == 2)
+            {
+                for (int i = 0; i < Symbols.Count; ++i)
+                {
+                    for (int j = 0; j < mas.Count; ++i)
+                    {
+                        if (mas[j] == Symbols[i]) return rnd.NextDouble();
+                    }
+                }
+            }
+            return 0;
+        }
+    }
+}
+

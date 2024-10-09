@@ -1,0 +1,18 @@
+using GeneratorOfSafronov;
+class Program
+{
+    static void Main()
+    {
+        var gen = new Gen(); // создание экземпляра класса
+        int a = gen.ValueInt(200, 1); // генерация целого числа. Числа в скобках - диапазон
+        double x = gen.ValueDouble(); // генерация double числа. Диапазон не требуется.
+        Console.WriteLine($"{x:f3}");
+        Console.WriteLine(a);
+        /*List<int> list = new List<int>();
+        for (int i = 0; i < 100; i++)
+        {
+            list.Add(gen.ValueInt(1, 100));
+            Console.WriteLine(list[i]);
+        }*/
+    }
+}

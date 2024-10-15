@@ -1,0 +1,15 @@
+L:\1mp\Portfolio\CRUD\bin\Release\net8.0\CRUD.exe
+L:\1mp\Portfolio\CRUD\bin\Release\net8.0\CRUD.deps.json
+L:\1mp\Portfolio\CRUD\bin\Release\net8.0\CRUD.runtimeconfig.json
+L:\1mp\Portfolio\CRUD\bin\Release\net8.0\CRUD.dll
+L:\1mp\Portfolio\CRUD\bin\Release\net8.0\CRUD.pdb
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.GeneratedMSBuildEditorConfig.editorconfig
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.AssemblyInfoInputs.cache
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.AssemblyInfo.cs
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.csproj.CoreCompileInputs.cache
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.sourcelink.json
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.dll
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\refint\CRUD.dll
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.pdb
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\CRUD.genruntimeconfig.cache
+L:\1mp\Portfolio\CRUD\obj\Release\net8.0\ref\CRUD.dll
